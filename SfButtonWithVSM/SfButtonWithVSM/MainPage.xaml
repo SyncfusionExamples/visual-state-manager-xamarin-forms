@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SfButtonWithVSM"
+             xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="SfButtonWithVSM.MainPage">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               WidthRequest="200"
+               VerticalTextAlignment="Center"
+               Text="Normal Button:"/>
+        <button:SfButton Grid.Row="0"
+                         Grid.Column="1"
+                         IsEnabled="False"/>
+        
+        <button:SfButton Grid.Row="0"
+                         Grid.Column="2"
+                         IsEnabled="False"/>
+        
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               WidthRequest="200"
+               VerticalTextAlignment="Center"
+               Text="Button with VSM:"/>
+
+        <button:SfButton Grid.Row="2"
+                         IsCheckable="{Binding Source={x:Reference ToggleCheck}, Path=IsChecked}"
+                         Grid.Column="1"  
+                         Text="Enabled">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Enabled" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Clicked" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Disabled" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Checked" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </button:SfButton>
+        
+        <button:SfButton Grid.Row="2"
+                         Grid.Column="2"
+                         IsEnabled="False">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Enabled" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Clicked" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Disabled" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="Text" Value="Checked" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </button:SfButton>
+
+        <button:SfCheckBox Grid.Row="3"
+                           Grid.Column="0"
+                           x:Name="ToggleCheck"
+                           Text="Enable Toggle Mode"/>
+    </Grid>
+
+</ContentPage>
